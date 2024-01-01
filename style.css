@@ -7,15 +7,23 @@
 }
 
 body {
-  /* TODO */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: linear-gradient(90deg, yellow, red);
 }
 
 input {
- /* TODO */
+  background-color: #f2ac48;
+  padding: 12px 8px;
+  min-width: 300px;
+  border: 0;
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.2);
 }
 
 .search-container {
- /* TODO */
+ position: relative;
 }
 .search-container input,
 .search-container .suggestions {
@@ -25,20 +33,26 @@ input {
  /* TODO */
 }
 .search-container .suggestions {
-   /* TODO */
+   background-color: #f2ac48;
+   position: absolute;
+   min-width: 316px;
+   padding: 0;
+   margin: 0;
 }
 
 ul {
-  /* TODO */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 ul.has-suggestions {
   /* TODO */
 }
 ul li {
-  /* TODO */
+  padding: 8px;
 }
 ul li:hover {
-  /* TODO */
+  background-color: #e85c04;
 }
 
 input {

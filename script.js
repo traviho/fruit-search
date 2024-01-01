@@ -6,22 +6,51 @@ const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackb
 function search(str) {
 	let results = [];
 
-	// TODO
+	// empty search string returns no results
+	if (str == "") {
+		return [];
+	}
+
+	for (f of fruit) {
+		if (f.toLowerCase().includes(str.toLowerCase())) {
+			results.push(f);
+		}
+	}
 
 	return results;
 }
 
 function searchHandler(e) {
-	// TODO
+	const results = search(e.target.value);
+	showSuggestions(results, e.target.value);
 }
 
 function showSuggestions(results, inputVal) {
+	// reset suggestions list
+	suggestions.textContent = "";
 
-	// TODO
+	// limit search results to first 5
+	results = results.slice(0, 5);
+	console.log(results)
+
+	for (result of results) {
+		const li = document.createElement("li");
+
+		// highlight the matching string in bold
+		const i = result.toLowerCase().indexOf(inputVal.toLowerCase());
+		const firstPart = result.slice(0, i);
+		const strong = "<strong>" + result.slice(i, i + inputVal.length) + "</strong>";
+		const lastPart = result.slice(i + inputVal.length, result.length);
+		li.innerHTML = firstPart + strong + lastPart;
+
+		suggestions.appendChild(li)
+	}
 }
 
 function useSuggestion(e) {
-	// TODO
+	// replace input with selected suggestion
+	suggestions.textContent = "";
+	input.value = e.target.textContent;
 }
 
 input.addEventListener('keyup', searchHandler);
